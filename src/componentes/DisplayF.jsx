@@ -23,9 +23,13 @@ const Div100Vh = styled(Div)`
     text-align:center;
     height: 100%;
     
-
+    padding: 40px 0;
     
 `
+const ContenedorVertical = styled(Div100Vh)`
+    flex-direction:column;
+`
+
 export const Contenedor =({children}) =>{
     return(
         <Div100Vh >
@@ -55,9 +59,9 @@ export const ContenedorCarrousel = ({children}) =>{
 export const ContenedorContacto = ({children}) =>{
     return(
         <div className="container-sm">
-            <Contenedor >
+            <ContenedorVertical >
                 {children}
-            </Contenedor>
+            </ContenedorVertical>
         </div>
 
     )
