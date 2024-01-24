@@ -49,11 +49,20 @@ export const ContenedorTPrincipal = ({titulo}) =>{
         </Contenedor>
     )
 }
+const ContenedorCaStyled = styled(Div100Vh)`
+    height: auto;
+    max-height: 800px;
+    padding: 40px 0;
+    
+`
 export const ContenedorCarrousel = ({children}) =>{
     return(
-        <div className="container-sm">
-            {children}
-        </div>
+        <ContenedorCaStyled>
+            <div className="container-sm">
+                {children}
+            </div>
+        </ContenedorCaStyled>
+ 
     )
 }
 export const ContenedorContacto = ({children}) =>{
