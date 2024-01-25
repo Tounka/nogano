@@ -82,7 +82,7 @@ const IconoStyled = styled.a`
         
 
         svg {
-            color: #b02630; !important;
+            color: #b02630 !important;
         }
     }
     }

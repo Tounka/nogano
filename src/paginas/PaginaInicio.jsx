@@ -3,6 +3,7 @@ import {DisplayFStyled, Contenedor, ContenedorTPrincipal, ContenedorCarrousel, C
 import Carrousel from "../componentes/Carrousel";
 import Contacto from "../componentes/Contacto";
 import Mapa from "../componentes/Mapa";
+import Button from "../componentes/Button";
 //import {manejarScroll} from '../js/funciones.js'
 import NavBarStyled from "../componentes/NavBar";
 
@@ -27,9 +28,10 @@ function PaginaInicio(){
                 
                     
                 <Contenedor>
-                    <Mapa></Mapa>
+                    <Button></Button>
                     
                 </Contenedor>
+
             </DisplayFStyled>
         </>
         
