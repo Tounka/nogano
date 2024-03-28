@@ -35,7 +35,7 @@ p {
 
 /* Estilo básico para enlaces */
 a {
-  color: #007bff;
+  
   text-decoration: none;
 }
 
@@ -65,4 +65,8 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+:root{
+  --colorRojoPrincipal: #b02630;
 }

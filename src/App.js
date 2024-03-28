@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='Inicio' element={<PaginaInicio />}></Route>
+          <Route index element={<PaginaInicio />}></Route>
         </Routes>
         
       </BrowserRouter>

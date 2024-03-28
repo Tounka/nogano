@@ -24,7 +24,9 @@ const useScrollHandler = () => {
 
 
 const Nav = styled.nav`
-    background-color:  ${props => (props.isScrolled ? '#9b000f;' : 'transparent')};
+    
+    background-color: ${props => (props.isScrolled ? 'rgb(89 0 9)' : 'transparent')};
+    
     display:flex;
     transition: background-color 0.5s ease;
     justify-content: space-between ;
@@ -40,6 +42,7 @@ const Nav = styled.nav`
 const ContenedorNav = styled.div`
     position: fixed;
     width:100%;
+    height: 70px;
     z-index:100;
     
 `
@@ -47,7 +50,8 @@ const Ul = styled.ul`
     display:flex;
     justify-content: center;
     align-items:center;
-    
+    height: 100%;
+    margin-bottom: 0;
     > *{
 
         display:flex;
@@ -58,11 +62,21 @@ const Ul = styled.ul`
     
 `
 const Li = styled.li`
-
+   @media (max-width: 350px) {
+        display: ${props => (props.peque ? 'none' : 'flex')};
+    }
+    @media (max-width: 480px) {
+        display: ${props => (props.mediano ? 'none' : 'flex')};
+    }
+    @media (max-width: 600px) {
+        display: ${props => (props.grande ? 'none' : 'flex')};
+    }
+    
     &:hover >*{
         
         color: ${props =>(props.isScrolled ?  '#000000'  : '#C6313F')};
         transition: color .2s ease;
+     
     }
     transition: color .2s ease;
 `
@@ -76,6 +90,8 @@ const Nombre = styled.h2`
 
     color: #fff;
     margin: 0;
+    display:flex;
+    align-items:center;
 
 `
 
@@ -87,22 +103,19 @@ function NavBar(){
             <Nav isScrolled={isScrolled}>
                 <Nombre>Nogano</Nombre>
                 <Ul>
-                    <Li isScrolled={isScrolled}>
-                        <LinkStyled to="/">Blanck</LinkStyled>
-                    </Li>
-                    <Li isScrolled={isScrolled}>
+                    <Li isScrolled={isScrolled}   >
                         <LinkStyled to="/inicio">Inicio</LinkStyled>
                     </Li>
-                    <Li isScrolled={isScrolled}>
+                    <Li isScrolled={isScrolled} peque >
                         <LinkStyled to="/Menu">Menu</LinkStyled>
                     </Li>
-                    <Li isScrolled={isScrolled}>
+                    <Li isScrolled={isScrolled}  peque>
                         <LinkStyled to="/Charolas">Charolas</LinkStyled>
                     </Li>
-                    <Li isScrolled={isScrolled}>
+                    <Li isScrolled={isScrolled} grande>
                         <LinkStyled to="/Experiencia">Experiencia</LinkStyled>
                     </Li>
-                    <Li isScrolled={isScrolled}>
+                    <Li isScrolled={isScrolled} grande>
                         <LinkStyled to="/Contacto">Contacto</LinkStyled>
                     </Li>
                 </Ul>

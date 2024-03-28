@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ContenedorTextoSeparador } from "./ComponentesGenerales";
 const Div = styled.div`
     
         width:100%;
@@ -28,6 +29,7 @@ const Div100Vh = styled(Div)`
 `
 const ContenedorVertical = styled(Div100Vh)`
     flex-direction:column;
+    
 `
 
 export const Contenedor =({children}) =>{
@@ -43,9 +45,9 @@ const H1 = styled.h1`
 export const ContenedorTPrincipal = ({titulo}) =>{
     return(
         <Contenedor>
-            <H1>
+            <ContenedorTextoSeparador>
                 {titulo}
-            </H1>
+            </ContenedorTextoSeparador>
         </Contenedor>
     )
 }

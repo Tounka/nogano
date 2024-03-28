@@ -2,11 +2,18 @@ import styled from 'styled-components';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
-
+import {ContenedorTextoSeparador} from '../componentes/ComponentesGenerales'
 const DivContenedor = styled.div`
   display: flex;
   height: 400px;
 `;
+const DivContenedorContacto = styled(DivContenedor)`
+  @media (max-width: 600px) {
+    flex-direction:column;
+    height: auto;
+  }
+
+`
 
 const ContenedorIzquierdo = styled.div`
   display: flex;
@@ -14,6 +21,10 @@ const ContenedorIzquierdo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+    @media (max-width: 600px) {
+      width:100%;
+      margin-bottom: 10px;
+  }
 `;
 
 const ContenedorDerecho = styled.div`
@@ -23,6 +34,11 @@ const ContenedorDerecho = styled.div`
   align-items: baseline;
   justify-content: center;
   gap: 10px;
+  @media (max-width: 600px) {
+      width:100%;
+      align-items:center;
+      
+  }
 `;
 
 const ContenedorImg = styled.div`
@@ -44,7 +60,7 @@ const H2 = styled.h2`
   color: #fff;
 `;
 
-const Texto = styled.p`
+const TextoStyled = styled.p`
     width:100%;
   font-size: ${(props) => props.tamano || '20px'};
   font-weight: bold;
@@ -57,9 +73,24 @@ const Texto = styled.p`
   &:hover {
     transition: 0.5s, color 0.10s;
     color: #b02630;
-    transform: translatex(20px);
+    transform: translateY(-7px);
+    @media (min-width: 600px) {
+      transform: translatex(20px);
+  }
+    
+  }
+  @media (max-width: 600px) {
+      text-align:center;
   }
 `;
+const Texto = ({tamano, texto}) =>{
+  const hanleclick = (textoAcopiar) =>{
+    navigator.clipboard.writeText(textoAcopiar);
+  }
+  return(
+    <TextoStyled onClick={() => hanleclick(texto)} tamano={tamano}>{texto}</TextoStyled>
+  )
+}
 
 const ContenedorIconos = styled.div`
   display: flex;
@@ -100,8 +131,8 @@ const Icono = ({ icono: IconoComponent, link }) => {
 const Contacto = () => {
   return (
     <>
-      <H2>Contacto</H2>
-      <DivContenedor className='row'>
+      <ContenedorTextoSeparador>Contacto</ContenedorTextoSeparador>
+      <DivContenedorContacto className='row'>
         <ContenedorIzquierdo className="col-6 ">
           <ContenedorImg>
             <iframe
@@ -118,9 +149,9 @@ const Contacto = () => {
         </ContenedorIzquierdo>
 
         <ContenedorDerecho className="col-6">
-          <Texto tamano='36px'> Nogami </Texto>
-          <Texto>Av. La Piedad 4151, Real del Valle, 82124 Mazatlán, Sin.</Texto>
-          <Texto>669 922 2924</Texto>
+          <Texto texto="Nogami" tamano='36px' />  
+          <Texto texto="Av. La Piedad 4151, Real del Valle, 82124 Mazatlán, Sin." />
+          <Texto texto="669 922 2924" />
 
           <ContenedorIconos className='gap-5'>
             <Icono icono={FaFacebook} link={'https://www.facebook.com/naganosushii?locale=es_LA'} />
@@ -128,7 +159,7 @@ const Contacto = () => {
             <Icono icono={IoLogoWhatsapp} link={'https://web.whatsapp.com/send?phone=526699222924'} />
           </ContenedorIconos>
         </ContenedorDerecho>
-      </DivContenedor>
+      </DivContenedorContacto>
     </>
   );
 };
