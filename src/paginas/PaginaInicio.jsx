@@ -1,8 +1,8 @@
 import React from "react";
-import {DisplayFStyled, Contenedor, ContenedorTPrincipal, ContenedorCarrousel, ContenedorContacto} from '../componentes/DisplayF'
+import {DisplayFStyled, Contenedor, ContenedorTPrincipal, ContenedorCarrousel, ContenedorContacto, ContenedorGeneral} from '../componentes/DisplayF'
 import Carrousel from "../componentes/Carrousel";
 import Contacto from "../componentes/Contacto";
-import { Menu } from "../componentes/Menu";
+import { MenuPaginaPrincipal } from "../componentes/Menu";
 import Mapa from "../componentes/Mapa";
 //import {manejarScroll} from '../js/funciones.js'
 import NavBarStyled from "../componentes/NavBar";
@@ -16,6 +16,10 @@ function PaginaInicio(){
 
                 <ContenedorTPrincipal titulo='NOGANO' />
 
+                <ContenedorGeneral>
+                    <MenuPaginaPrincipal>  </MenuPaginaPrincipal>
+                </ContenedorGeneral>
+
                 <ContenedorCarrousel >
                     <Carrousel />
                 </ContenedorCarrousel>
@@ -25,9 +29,9 @@ function PaginaInicio(){
                     <Contacto />
                 </ContenedorContacto>
 
-                
+
                     
-                <Menu></Menu>
+                
 
             </DisplayFStyled>
         </>

@@ -6,7 +6,7 @@ const Div = styled.div`
         width:100%;
         height:100%;
         background-color:black;
-    
+        padding-top: 70px;
 `
 
 export const DisplayFStyled = ({children})=> {
@@ -68,6 +68,16 @@ export const ContenedorCarrousel = ({children}) =>{
     )
 }
 export const ContenedorContacto = ({children}) =>{
+    return(
+        <div className="container-sm">
+            <ContenedorVertical >
+                {children}
+            </ContenedorVertical>
+        </div>
+
+    )
+}
+export const ContenedorGeneral = ({children}) =>{
     return(
         <div className="container-sm">
             <ContenedorVertical >

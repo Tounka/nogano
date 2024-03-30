@@ -104,9 +104,9 @@ function NavBar(){
                 <Nombre>Nogano</Nombre>
                 <Ul>
                     <Li isScrolled={isScrolled}   >
-                        <LinkStyled to="/inicio">Inicio</LinkStyled>
+                        <LinkStyled to="/">Inicio</LinkStyled>
                     </Li>
-                    <Li isScrolled={isScrolled} peque >
+                    <Li isScrolled={isScrolled} peque to="Menu">
                         <LinkStyled to="/Menu">Menu</LinkStyled>
                     </Li>
                     <Li isScrolled={isScrolled}  peque>

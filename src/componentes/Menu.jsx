@@ -1,7 +1,9 @@
 import {menuCompleto} from '../js/menu.js'
-import {ContenedorTextoSeparador} from './ComponentesGenerales.jsx'
+import {ContenedorTextoSeparador, BottonTo} from './ComponentesGenerales.jsx'
 import styled from 'styled-components'
 import imgBg from '../img/marmolBg.jpg'
+import { Link } from 'react-router-dom'
+
 const TextoCategoria = styled.p`
     color: ${props => (props.rojo ? 'var(--colorRojoPrincipal)' : '#fff')} !important;
     font-size: 26px;
@@ -70,12 +72,19 @@ const ContenedorPMenu = styled.div`
     min-height:100%;
     flex-direction:column;
 `
+const SeparadorPMenu = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height: 150px;
+`
 export const Menu = () => {
 
     
     return(
        <ContenedorPMenu>
-         <ContenedorTextoSeparador> Menu </ContenedorTextoSeparador>
+
+         
          
 
          {menuCompleto.map(categoria => (
@@ -99,3 +108,78 @@ export const Menu = () => {
        </ContenedorPMenu>
     )
 }
+
+const ContenedorDisplayGridMenu = styled.div`
+    width: 100%;
+    height: 545px;
+
+
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 15px;
+
+`
+
+const ContenedorCardImg = styled.div`
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    &:hover .clImgMenuInner{
+    transform: rotateY(180deg);
+  }
+ 
+`
+const ContenedorCardImg_Inner = styled.div`
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+
+`
+const ContenedorCardImgLargo = styled(ContenedorCardImg)`
+ 
+    grid-column: span 2; 
+`
+const ContenedorCardImg_front = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+   
+`
+const ContenedorCardImg_back = styled.div`
+width: 100%;
+  height: 100%;
+  background-color: #f00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+`
+export const MenuPaginaPrincipal = () =>{
+    return(
+        <>
+            <ContenedorDisplayGridMenu>
+                <ContenedorCardImg>
+                    <ContenedorCardImg_Inner className='clImgMenuInner'>
+                        <ContenedorCardImg_front>Hola</ContenedorCardImg_front>
+                        <ContenedorCardImg_back>ADIOS</ContenedorCardImg_back>
+
+                    </ContenedorCardImg_Inner>
+          
+
+                </ContenedorCardImg>
+            </ContenedorDisplayGridMenu>
+            <BottonTo to="Menu">Ver Menu Completo</BottonTo>
+        </>
+        
+    )
+}
+
