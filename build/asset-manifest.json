@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2433656f.css",
+    "main.js": "/static/js/main.c3d5ea1d.js",
+    "static/media/imgComida1.jpg": "/static/media/imgComida1.35f041859280d94fc7ef.jpg",
+    "static/media/marmolBg.jpg": "/static/media/marmolBg.de1698a823f3b208c115.jpg",
+    "static/media/ImgComida2.jpg": "/static/media/ImgComida2.1486f60a84dca10cb78c.jpg",
+    "static/media/ImgComida3.jpg": "/static/media/ImgComida3.643d8c12eb1b60a140a7.jpg",
+    "static/media/ImgCChillyEspecial.webp": "/static/media/ImgCChillyEspecial.00ccb638acc9968c9d8b.webp",
+    "static/media/ImgCYakimeshiEsp.webp": "/static/media/ImgCYakimeshiEsp.a1b2573ccf0bdc6b1e5a.webp",
+    "static/media/ImgCPillyRoll.webp": "/static/media/ImgCPillyRoll.928b6e50a2e0184ae128.webp",
+    "static/media/ImgCGohanHorneado.webp": "/static/media/ImgCGohanHorneado.4109306a9b328f0d0717.webp",
+    "static/media/ImgCRolloPinky.webp": "/static/media/ImgCRolloPinky.e132aa591f893664d6ad.webp",
+    "static/media/ImgCRolloTacoInn.webp": "/static/media/ImgCRolloTacoInn.386bbc0f85a7dfd5ad29.webp",
+    "static/media/ImgCGohanEspecial.webp": "/static/media/ImgCGohanEspecial.f7b7b6a4dfa3c6a520b4.webp",
+    "static/media/ImgCKushiaguesDeQueso.webp": "/static/media/ImgCKushiaguesDeQueso.4901f6c25dada4c1ce93.webp",
+    "static/media/ImgCSakura.webp": "/static/media/ImgCSakura.222dd4d192dd6e6f8726.webp",
+    "static/media/ImgCRolloGeneralEspecial.webp": "/static/media/ImgCRolloGeneralEspecial.6bc5f31c616d3577105b.webp",
+    "index.html": "/index.html",
+    "main.2433656f.css.map": "/static/css/main.2433656f.css.map",
+    "main.c3d5ea1d.js.map": "/static/js/main.c3d5ea1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2433656f.css",
+    "static/js/main.c3d5ea1d.js"
+  ]
+}
