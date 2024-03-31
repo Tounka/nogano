@@ -119,7 +119,9 @@ const ContenedorDisplayGridMenu = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 15px;
-    
+    @media (max-width: 480px) {
+        grid-gap: 8px;
+    }
 
     margin-bottom: 20px;
 `
@@ -144,7 +146,7 @@ const ContenedorCardImgLargo = styled(ContenedorCardImg)`
  
     grid-column: span 2; 
 `
-const ContenedorCardImg_frontStyled = styled.div`
+const ContenedorCardImgFrontStyled = styled.div`
     width: 100%;
     height: 100%;
     background-image: url(${props => props.img ? require(`../img/imagenesComida/${props.img}.webp`) : '#fff'});
@@ -157,16 +159,17 @@ const ContenedorCardImg_frontStyled = styled.div`
     align-items: center;
     position: absolute;
     backface-visibility: hidden;
+    
    
 `
 
 
-const ContenedorCardImg_front = ({nombre, img}) =>{
+const ContenedorCardImgFront = ({nombre, img}) =>{
     
     return(
-        <ContenedorCardImg_frontStyled img= {img}>
+        <ContenedorCardImgFrontStyled img= {img}>
             <TextoFrontMenu>{nombre}</TextoFrontMenu>
-        </ContenedorCardImg_frontStyled>
+        </ContenedorCardImgFrontStyled>
     )
 } 
 
@@ -183,7 +186,33 @@ const ContenedorTextoBackMenuStyled = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
     background-size: 200px;
+
+   
+   
+    overflow:hidden;
+    
 `
+const ContenedorTextoScroll = styled.div`
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  ::-webkit-scrollbar-thumb {
+  background: transparent; 
+}
+
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    gap: 10px; 
+  }
+`;
 const TextoBackMenu = styled.p`
 
     font-family: ${props => props.principal ? `"Caveat", cursive;` : ""};
@@ -191,17 +220,26 @@ const TextoBackMenu = styled.p`
     font-size: ${props => props.principal ? "24px" : "14px"};
     color: ${props => props.principal ? "var(--colorRojoSecundario)" : "white"};
     font-weight:bold;
-    margin:0;
+    margin: 6px 0;
+
+
+    
 `
 const TextoFrontMenu = styled(TextoBackMenu)`
     font-size: 24px;
+    @media (max-width: 480px) {
+        font-size: 16px;
+    }
 `
 const ContenedorTextoBackMenu = ({nombre, descripcion, precio}) =>{
     return(
         <ContenedorTextoBackMenuStyled>
-            <TextoBackMenu principal> {nombre} </TextoBackMenu>
-            <TextoBackMenu > {descripcion} </TextoBackMenu>
-            <TextoBackMenu > {precio} </TextoBackMenu>
+            <ContenedorTextoScroll>
+                <TextoBackMenu principal> {nombre} </TextoBackMenu>
+                <TextoBackMenu secundario> {descripcion} </TextoBackMenu>
+                <TextoBackMenu > {precio} </TextoBackMenu>
+            </ContenedorTextoScroll>
+       
         </ContenedorTextoBackMenuStyled>
     )
 }
@@ -213,7 +251,7 @@ const CardMenu = ({tamano, img,descripcion, precio, nombre})=>{
     return(
         <ComponenteCardFinal>
         <ContenedorCardImg_Inner className='clImgMenuInner'>
-            <ContenedorCardImg_front nombre={nombre} img={img}> {nombre}</ContenedorCardImg_front>
+            <ContenedorCardImgFront nombre={nombre} img={img}> {nombre}</ContenedorCardImgFront>
             <ContenedorTextoBackMenu nombre={nombre} descripcion={descripcion} precio={precio} />
 
         </ContenedorCardImg_Inner>

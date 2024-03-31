@@ -5,6 +5,7 @@ const Div = styled.div`
     
         width:100%;
         height:100%;
+        max-height: auto;
         background-color:black;
         padding-top: 70px;
 `
@@ -23,7 +24,7 @@ const Div100Vh = styled(Div)`
     align-items:center;
     text-align:center;
     height: 100%;
-    
+    min-height: 90vh;
     padding: 40px 0;
     
 `

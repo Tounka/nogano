@@ -6,6 +6,7 @@ import { MenuPaginaPrincipal } from "../componentes/Menu";
 import Mapa from "../componentes/Mapa";
 //import {manejarScroll} from '../js/funciones.js'
 import NavBarStyled from "../componentes/NavBar";
+import { FooterX } from "../componentes/Footer";
 
 function PaginaInicio(){
    
@@ -32,8 +33,9 @@ function PaginaInicio(){
 
                     
                 
-
+                
             </DisplayFStyled>
+            <FooterX />
         </>
         
 
