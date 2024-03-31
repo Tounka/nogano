@@ -32,9 +32,9 @@ const ContenedorVertical = styled(Div100Vh)`
     
 `
 
-export const Contenedor =({children}) =>{
+export const Contenedor =({children , id}) =>{
     return(
-        <Div100Vh >
+        <Div100Vh id={id}>
             {children}
         </Div100Vh>
     )
@@ -44,11 +44,14 @@ const H1 = styled.h1`
 `
 export const ContenedorTPrincipal = ({titulo}) =>{
     return(
-        <Contenedor>
+        
+        <Contenedor id="Inicio">
             <ContenedorTextoSeparador>
                 {titulo}
             </ContenedorTextoSeparador>
         </Contenedor>
+        
+    
     )
 }
 const ContenedorCaStyled = styled(Div100Vh)`

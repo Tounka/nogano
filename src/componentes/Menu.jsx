@@ -1,11 +1,12 @@
-import {menuCompleto} from '../js/menu.js'
-import {ContenedorTextoSeparador, BottonTo} from './ComponentesGenerales.jsx'
+import {menuCompleto, menuConImg} from '../js/menu.js'
+import {ContenedorTextoSeparador, ButtonTo} from './ComponentesGenerales.jsx'
 import styled from 'styled-components'
 import imgBg from '../img/marmolBg.jpg'
-import { Link } from 'react-router-dom'
+
+
 
 const TextoCategoria = styled.p`
-    color: ${props => (props.rojo ? 'var(--colorRojoPrincipal)' : '#fff')} !important;
+    color: ${props => (props.rojo ? 'var(--colorRojoSecundario)' : '#fff')} !important;
     font-size: 26px;
     text-align:center;
     font-weight:bold;
@@ -14,7 +15,7 @@ const TextoCategoria = styled.p`
 `
 const TextoMenu = styled.p`
     font-size: ${props => (props.principal ? '20px' : '16px')};
-    color: ${props => (props.rojo ? 'var(--colorRojoPrincipal)' : '#fff')};
+    color: ${props => (props.rojo ? 'var(--colorRojoSecundario)' : '#fff')};
     margin: 0;
     text-align:left;
 
@@ -51,6 +52,7 @@ const ContenedorCartaDerechoStyled = styled.div`
 `
 
 const ContenedorCartaCategoria = ({nombre, descripcion, precio}) =>{
+    
     return(
         <ContenedorCartaCategoriaStyled>
             <ContenedorCartaIzquierdoStyled> 
@@ -80,7 +82,6 @@ const SeparadorPMenu = styled.div`
 `
 export const Menu = () => {
 
-    
     return(
        <ContenedorPMenu>
 
@@ -118,7 +119,9 @@ const ContenedorDisplayGridMenu = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 15px;
+    
 
+    margin-bottom: 20px;
 `
 
 const ContenedorCardImg = styled.div`
@@ -141,10 +144,14 @@ const ContenedorCardImgLargo = styled(ContenedorCardImg)`
  
     grid-column: span 2; 
 `
-const ContenedorCardImg_front = styled.div`
+const ContenedorCardImg_frontStyled = styled.div`
     width: 100%;
     height: 100%;
-    background-color: #ccc;
+    background-image: url(${props => props.img ? require(`../img/imagenesComida/${props.img}.webp`) : '#fff'});
+    background-color: rgba(0, 0, 0, 0.5); 
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,34 +159,82 @@ const ContenedorCardImg_front = styled.div`
     backface-visibility: hidden;
    
 `
-const ContenedorCardImg_back = styled.div`
-width: 100%;
-  height: 100%;
-  background-color: #f00;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-`
-export const MenuPaginaPrincipal = () =>{
+
+
+const ContenedorCardImg_front = ({nombre, img}) =>{
+    
     return(
-        <>
-            <ContenedorDisplayGridMenu>
-                <ContenedorCardImg>
-                    <ContenedorCardImg_Inner className='clImgMenuInner'>
-                        <ContenedorCardImg_front>Hola</ContenedorCardImg_front>
-                        <ContenedorCardImg_back>ADIOS</ContenedorCardImg_back>
+        <ContenedorCardImg_frontStyled img= {img}>
+            <TextoFrontMenu>{nombre}</TextoFrontMenu>
+        </ContenedorCardImg_frontStyled>
+    )
+} 
 
-                    </ContenedorCardImg_Inner>
-          
+const ContenedorTextoBackMenuStyled = styled.div`
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background-image: url(${imgBg});
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    background-size: 200px;
+`
+const TextoBackMenu = styled.p`
 
-                </ContenedorCardImg>
-            </ContenedorDisplayGridMenu>
-            <BottonTo to="Menu">Ver Menu Completo</BottonTo>
-        </>
-        
+    font-family: ${props => props.principal ? `"Caveat", cursive;` : ""};
+    text-shadow: ${props => props.principal ? "2px 2px 4px rgba(0, 0, 0, 0.5)" : ""}; 
+    font-size: ${props => props.principal ? "24px" : "14px"};
+    color: ${props => props.principal ? "var(--colorRojoSecundario)" : "white"};
+    font-weight:bold;
+    margin:0;
+`
+const TextoFrontMenu = styled(TextoBackMenu)`
+    font-size: 24px;
+`
+const ContenedorTextoBackMenu = ({nombre, descripcion, precio}) =>{
+    return(
+        <ContenedorTextoBackMenuStyled>
+            <TextoBackMenu principal> {nombre} </TextoBackMenu>
+            <TextoBackMenu > {descripcion} </TextoBackMenu>
+            <TextoBackMenu > {precio} </TextoBackMenu>
+        </ContenedorTextoBackMenuStyled>
     )
 }
+
+
+const CardMenu = ({tamano, img,descripcion, precio, nombre})=>{
+    
+    const ComponenteCardFinal = tamano ? ContenedorCardImgLargo : ContenedorCardImg;
+    return(
+        <ComponenteCardFinal>
+        <ContenedorCardImg_Inner className='clImgMenuInner'>
+            <ContenedorCardImg_front nombre={nombre} img={img}> {nombre}</ContenedorCardImg_front>
+            <ContenedorTextoBackMenu nombre={nombre} descripcion={descripcion} precio={precio} />
+
+        </ContenedorCardImg_Inner>
+    </ComponenteCardFinal>
+    )
+
+}
+export const MenuPaginaPrincipal = () => {
+    return (
+        <>
+            <ContenedorDisplayGridMenu>
+                {menuConImg.map((item, index) => {
+                    const tamano = (index === 0 || index === 5 || index === 6) ? "grande" : "";
+                    return (
+                        <CardMenu key={index} tamano={tamano} nombre={item.producto} img={item.img} descripcion={item.descripcion} precio={item.precio} />
+                    );
+                })}
+            </ContenedorDisplayGridMenu>
+            <ButtonTo to="Menu" text="Ver Menu Completo" />
+        </>
+    );
+}
+
 

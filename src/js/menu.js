@@ -2,7 +2,9 @@ const entradas = ['Entradas', [
     {
         producto: "Kushiages de Queso",
         descripcion: "5 piezas de brochetas de queso manchego.",
-        precio: "$100.00"
+        precio: "$100.00",
+        img: "ImgCKushiaguesDeQueso"
+        
     },
     {
         producto: "Kushiages de Philadelphia",
@@ -221,7 +223,8 @@ const yakimeshi = ['Yakimeshi',
 [    {
         producto: "Yakimeshi Especial de Camarón",
         descripcion: "Arroz frito de camaron ,verduras salteadas con tampico, philadelphia y aguacate.",
-        precio: "$155.00"
+        precio: "$155.00",
+        img: "ImgCYakimeshiEsp"
     },
     {
         producto: "Yakimeshi Arrachera",
@@ -239,12 +242,14 @@ const gohan = [ 'Gohan',
  [   {
         producto: "Gohan Horneado",
         descripcion: "Capa de aguacate, philadelphia y tampico, coronado con spicy de camarón. Arroz al vapor.",
-        precio: "$185.00"
+        precio: "$185.00",
+        img: "ImgCGohanHorneado"
     },
     {
         producto: "Gohan Especial",
         descripcion: "Arrachera, pollo, camarón, tampico, philadelphia y aguacate. Arroz al vapor.",
-        precio: "$150.00"
+        precio: "$150.00",
+        img: "ImgCGohanEspecial"
     },
     {
         producto: "Gohan Arrachera",
@@ -257,7 +262,8 @@ const rollosSencillos = [ 'Rollos Sencillos',
 [    {
         producto: "Rollo Pinky Roll",
         descripcion: "Por dentro: camarón empanizado y philadelphia. Por fuera: camarón y aguacate con topping de tampico, bañado en salsa de anguila.",
-        precio: "$155.00"
+        precio: "$155.00",
+        img: "ImgCRolloPinky"
     },
     {
         producto: "Rollo California",
@@ -293,7 +299,8 @@ const rollosDeLaCasa = ['Rollos De La Casa',
 [    {
         producto: "Rollo General Especial",
         descripcion: "Por dentro: camarón, kanikama, philadelphia y aguacate. Por fuera: forrado de atún, laminas de cebolla, serrano, sal de grano, con un toque de limón. Picante.",
-        precio: "$175.00"
+        precio: "$175.00",
+        img: "ImgCRolloGeneralEspecial"
     },
     {
         producto: "Nagano Roll",
@@ -311,12 +318,14 @@ const rollosEmpanizados = ['Rollos Empanizados',
 [    {
         producto: "Sakura Roll",
         descripcion: "Por dentro: camarón o surimi, philadelphia y aguacate. Por fuera: queso americano, philadelphia, manchego, con topping de tampico.",
-        precio: "$145.00"
+        precio: "$145.00",
+        img: "ImgCSakura"
     },
     {
         producto: "Rollo Tako inn",
         descripcion: "Por dentro: camarón, philadelphia y aguacate. Por fuera: spicy de camarón y pulpo.",
-        precio: "$185.00"
+        precio: "$185.00",
+        img: "ImgCRolloTacoInn"
     },
     {
         producto: "Miyagui Roll",
@@ -329,12 +338,14 @@ const rollosHorneados = ['Rollos Horneados',
 [    {
         producto: "Chiny Especial",
         descripcion: "Por dentro: camarón, philadelphia y pepino. Por fuera: forrado de aguacate con topping de pulpo y kanikama. Picante.",
-        precio: "$185.00"
+        precio: "$185.00",
+        img: "ImgCChillyEspecial"
     },
     {
         producto: "Pily Roll",
         descripcion: "Por dentro: camarón, philadelphia y pepino. Por fuera: forrado de salmón con topping de salmón y camarón. Picante.",
-        precio: "$205.00"
+        precio: "$205.00",
+        img: "ImgCPillyRoll"
     },
     {
         producto: "Isa Hot",
@@ -420,3 +431,24 @@ export const menuCompleto = [
     postres,
     bebidas
 ];
+
+
+const funMenuConImg = (menu) => {
+    let menuConImg = []; // Define un arreglo donde almacenarás el resultado
+    
+    const allPlatos = menu.flatMap(categoria => categoria[1]);
+    const platosConImagen = allPlatos.filter(plato => plato.img);
+    for (let i = platosConImagen.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [platosConImagen[i], platosConImagen[j]] = [platosConImagen[j], platosConImagen[i]];
+    }
+    
+    menuConImg.push(...platosConImagen.slice(0, 9));
+    
+    return menuConImg; 
+}
+
+export const menuConImg = funMenuConImg(menuCompleto);
+
+
+

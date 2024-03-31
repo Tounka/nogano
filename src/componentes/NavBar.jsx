@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import styled from "styled-components";
 import { Link} from 'react-router-dom';
 import { useState, useEffect } from "react";
@@ -86,12 +86,33 @@ const LinkStyled = styled(Link)`
     text-align:center;
 
 `
+const LinkNav = ({ text, to, scroll }) => {
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    };
+
+    const handleScrollToNextId = () => {
+        const seccionX = document.getElementById(scroll); // Accede directamente a scroll
+        if (seccionX) {
+            seccionX.scrollIntoView({ behavior: "smooth", block: "start" });
+        }else{
+
+        }
+    };
+
+    return (
+        <LinkStyled to={to} onClick={scroll ? handleScrollToNextId : handleScrollToTop}>
+            {text}
+        </LinkStyled>
+    );
+}
 const Nombre = styled.h2`
 
     color: #fff;
     margin: 0;
     display:flex;
     align-items:center;
+    font-family: "Caveat", cursive;
 
 `
 
@@ -99,25 +120,44 @@ const Nombre = styled.h2`
 function NavBar(){
     const isScrolled = useScrollHandler();
     return(
-        <ContenedorNav id=''>
+        <ContenedorNav >
             <Nav isScrolled={isScrolled}>
                 <Nombre>Nogano</Nombre>
                 <Ul>
                     <Li isScrolled={isScrolled}   >
-                        <LinkStyled to="/">Inicio</LinkStyled>
+                        <LinkNav to="/"  scroll="Inicio" text="Inicio" ></LinkNav>
                     </Li>
                     <Li isScrolled={isScrolled} peque to="Menu">
-                        <LinkStyled to="/Menu">Menu</LinkStyled>
+                        <LinkNav to="/Menu" text="Menu"></LinkNav>
                     </Li>
                     <Li isScrolled={isScrolled}  peque>
-                        <LinkStyled to="/Charolas">Charolas</LinkStyled>
+                        <LinkNav to="/Charolas" text="Charolas"></LinkNav>
                     </Li>
                     <Li isScrolled={isScrolled} grande>
-                        <LinkStyled to="/Experiencia">Experiencia</LinkStyled>
+                        <LinkNav to="/Experiencia" text="Experiencia"></LinkNav>
                     </Li>
                     <Li isScrolled={isScrolled} grande>
-                        <LinkStyled to="/Contacto">Contacto</LinkStyled>
+                        <LinkNav to="/" scroll="Contacto"  text="Contacto"></LinkNav>
                     </Li>
+                </Ul>
+            </Nav>
+
+        </ContenedorNav>
+       
+        
+    ) 
+}
+export function NavBarContacto(){
+    const isScrolled = useScrollHandler();
+    return(
+        <ContenedorNav >
+            <Nav isScrolled={isScrolled}>
+                <Nombre>Nogano</Nombre>
+                <Ul>
+                    <Li isScrolled={isScrolled}   >
+                        <LinkNav to="/" text="Inicio" ></LinkNav>
+                    </Li>
+                    
                 </Ul>
             </Nav>
 

@@ -3,6 +3,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import {ContenedorTextoSeparador} from '../componentes/ComponentesGenerales'
+
 const DivContenedor = styled.div`
   display: flex;
   height: 400px;
@@ -130,8 +131,8 @@ const Icono = ({ icono: IconoComponent, link }) => {
 
 const Contacto = () => {
   return (
-    <>
-      <ContenedorTextoSeparador>Contacto</ContenedorTextoSeparador>
+    <div id='Contacto'>
+      <ContenedorTextoSeparador >Contacto</ContenedorTextoSeparador>
       <DivContenedorContacto className='row'>
         <ContenedorIzquierdo className="col-6 ">
           <ContenedorImg>
@@ -160,7 +161,7 @@ const Contacto = () => {
           </ContenedorIconos>
         </ContenedorDerecho>
       </DivContenedorContacto>
-    </>
+    </div>
   );
 };
 
