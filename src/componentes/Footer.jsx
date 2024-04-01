@@ -10,11 +10,15 @@ const ContenedorFooter = styled.div`
     border-top: 3px solid ;
     font-size: 18px;
     color: white;
+    text-align:center;
 `
 export const FooterX = () =>{
     return(
         <ContenedorFooter>
-            Desarrollado por Ramón Castillo  
+            Desarrollado por Ramón Castillo <br />  
+            Luisarraca@hotmail.com <br />  
+            6691382961
+
         </ContenedorFooter>
     )
 }

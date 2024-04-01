@@ -380,34 +380,42 @@ const postres = [ 'Postres',
 const bebidas = ['Bebidas', 
  [   {
         producto: "Agua Natural",
+        descripcion: "Agua Natural",
         precio: "$25.00"
     },
     {
         producto: "Refresco de 355 ml",
+        descripcion: "Refresco de 355 ml",
         precio: "$30.00"
     },
     {
         producto: "Refresco de 600 ml",
+        descripcion: "Refresco de 600 ml",
         precio: "$40.00"
     },
     {
         producto: "Jugos Naturales",
+        descripcion: "Jugos Naturales",
         precio: "$35.00"
     },
     {
         producto: "Cerveza Nacional",
+        descripcion: "Cerveza Nacional",
         precio: "$45.00"
     },
     {
         producto: "Cerveza Importada",
+        descripcion: "Cerveza Importada",
         precio: "$60.00"
     },
     {
         producto: "Sake",
+        descripcion: "Sake",
         precio: "$85.00"
     },
     {
         producto: "Vino Tinto o Blanco",
+        descripcion: "Vino Tinto o Blanco",
         precio: "$90.00"
     }]
 ];

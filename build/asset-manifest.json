@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.35da8c77.css",
-    "main.js": "/static/js/main.051dc98d.js",
+    "main.js": "/static/js/main.1f8c920d.js",
     "static/media/imgComida1.jpg": "/static/media/imgComida1.35f041859280d94fc7ef.jpg",
     "static/media/marmolBg.jpg": "/static/media/marmolBg.de1698a823f3b208c115.jpg",
     "static/media/ImgComida2.jpg": "/static/media/ImgComida2.1486f60a84dca10cb78c.jpg",
@@ -18,10 +18,10 @@
     "static/media/ImgCRolloGeneralEspecial.webp": "/static/media/ImgCRolloGeneralEspecial.6bc5f31c616d3577105b.webp",
     "index.html": "/index.html",
     "main.35da8c77.css.map": "/static/css/main.35da8c77.css.map",
-    "main.051dc98d.js.map": "/static/js/main.051dc98d.js.map"
+    "main.1f8c920d.js.map": "/static/js/main.1f8c920d.js.map"
   },
   "entrypoints": [
     "static/css/main.35da8c77.css",
-    "static/js/main.051dc98d.js"
+    "static/js/main.1f8c920d.js"
   ]
 }

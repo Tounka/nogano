@@ -130,11 +130,8 @@ function NavBar(){
                     <Li isScrolled={isScrolled} peque to="Menu">
                         <LinkNav to="/Menu" text="Menu"></LinkNav>
                     </Li>
-                    <Li isScrolled={isScrolled}  peque>
-                        <LinkNav to="/Charolas" text="Charolas"></LinkNav>
-                    </Li>
                     <Li isScrolled={isScrolled} grande>
-                        <LinkNav to="/Experiencia" text="Experiencia"></LinkNav>
+                        <LinkNav to="/" scroll="Carrousel" text="Experiencia"></LinkNav>
                     </Li>
                     <Li isScrolled={isScrolled} grande>
                         <LinkNav to="/" scroll="Contacto"  text="Contacto"></LinkNav>
